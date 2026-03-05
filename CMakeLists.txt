@@ -29,23 +29,7 @@ set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Source")
 set(INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Include")
 set(VENDOR_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Vendor")
 
-# Vendor
-add_subdirectory("${VENDOR_DIR}/SDL")
-add_subdirectory("${VENDOR_DIR}/SDL_image")
-add_subdirectory("${VENDOR_DIR}/SDL_mixer")
-
-install(
-	FILES $<TARGET_FILE:SDL3::SDL3>
-	DESTINATION Bin
-)
-install(
-	FILES $<TARGET_FILE:SDL3_image::SDL3_image>
-	DESTINATION Bin
-)
-install(
-	FILES $<TARGET_FILE:SDL3_mixer::SDL3_mixer>
-	DESTINATION Bin
-)
+find_package(OpenGL REQUIRED COMPONENTS OpenGL)
 
 # Library
 file(GLOB_RECURSE Library_SOURCES 
@@ -60,14 +44,9 @@ target_compile_definitions(Library PRIVATE
 )
 target_include_directories(Library PRIVATE
 	${INCLUDE_DIR}
-	"${VENDOR_DIR}/SDL/include"
-	"${VENDOR_DIR}/SDL_image/include"
-	"${VENDOR_DIR}/SDL_mixer/include"
 )
 target_link_libraries(Library PRIVATE
-	SDL3::SDL3
-	SDL3_image::SDL3_image
-	SDL3_mixer::SDL3_mixer
+	${OPENGL_LIBRARIES}
 )
 set_target_properties(Library PROPERTIES
 	OUTPUT_NAME "KlumzyEngine"

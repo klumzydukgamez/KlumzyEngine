@@ -2,8 +2,12 @@
  * Coyright (c) 2026 Klumzy Duk Gamez
  * See LICENSE.md for license details */
 
-#ifndef __KLUMZY_MACROS_H__
-#define __KLUMZY_MACROS_H__
+#ifndef __KLUMZY_COMMON_H__
+#define __KLUMZY_COMMON_H__
+
+#ifdef __cplusplus
+extern "C" {
+#endif /* ifdef __cplusplus */
 
 #ifdef __GNUC__
 #define KLUMZY_COMPILER_GNU
@@ -53,4 +57,41 @@
 #define KLUMZY_INLINE inline
 #endif /* if defined(KLUMZY_COMPILER_GNU) || defined(KLUMZY_COMPILER_CLANG) */
 
-#endif /* ifndef __KLUMZY_MACROS_H__ */
+typedef signed char Klumzy_Int8;
+typedef signed short Klumzy_Int16;
+typedef signed int Klumzy_Int32;
+typedef signed long long Klumzy_Int64;
+
+typedef unsigned char Klumzy_UInt8;
+typedef unsigned short Klumzy_UInt16;
+typedef unsigned int Klumzy_UInt32;
+typedef unsigned long long Klumzy_UInt64;
+
+typedef float Klumzy_Float32;
+typedef double Klumzy_Float64;
+typedef long double Klumzy_Float128;
+
+typedef void Klumzy_Void;
+typedef char Klumzy_Char;
+typedef unsigned short Klumzy_WChar;
+typedef unsigned char Klumzy_Bool;
+
+#define Klumzy_False 0
+#define Klumzy_True 1
+#define Klumzy_Null 0
+
+#ifdef KLUMZY_SYSTEM_BITNESS_64
+typedef signed long long Klumzy_Int;
+typedef unsigned long long Klumzy_UInt;
+typedef double Klumzy_Float;
+#elifdef KLUMZY_SYSTEM_BITNESS_32 /* ifdef KLUMZY_SYSTEM_BITNESS_64 */
+typedef signed int Klumzy_Int;
+typedef unsigned int Klumzy_UInt;
+typedef float Klumzy_Float;
+#endif /* ifdef KLUMZY_SYSTEM_BITNESS_64 */
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif /* ifdef __cplusplus */
+
+#endif /* ifndef __KLUMZY_COMMON_H__ */
