@@ -10,6 +10,7 @@
 
 #ifdef KLUMZY_SYSTEM_WINDOWS
 #include <windows.h>
+#include <gl/GL.h>
 #endif
 
 #ifdef __cplusplus
@@ -19,6 +20,10 @@ extern "C" {
 typedef struct {
 #ifdef KLUMZY_SYSTEM_WINDOWS
 	HWND windowHandle;
+	HDC deviceContextHandle;
+	Klumzy_Int32 pixelFormat;
+	PIXELFORMATDESCRIPTOR pixelFormatDescriptor;
+	HGLRC glContextHandle;
 #endif
 } Klumzy_Window;
 

@@ -10,14 +10,14 @@ int main(int argc, char* argv[]) {
 
 	Klumzy_Result result = Klumzy_StartupDisplay(&display);
 	if (Klumzy_IsResultSuccess(result) == Klumzy_Null) {
-		printf("Failed to startup display: %d", result);
+		printf("Failed to startup display: %d\n", result);
 	}
 
 	Klumzy_Window* window;
-	for (Klumzy_UInt32 i = 0; i < KLUMZY_DISPLAY_MAX_WINDOWS; i++) {
+	for (Klumzy_UInt32 i = 0; i < 2; i++) {
 		result = Klumzy_OpenWindow(&display, &window);
 		if (Klumzy_IsResultSuccess(result) == Klumzy_Null) {
-			printf("Failed to open window: %d", result);
+			printf("Failed to open window (%d): %d\n", i, result);
 		}
 	}
 
@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
 
 	result = Klumzy_ShutdownDisplay(&display);
 	if (Klumzy_IsResultSuccess(result) == Klumzy_Null) {
-		printf("Failed to shutdown display: %lu", GetLastError());
+		printf("Failed to shutdown display: %lu\n", GetLastError());
 	}
 
 	return Klumzy_Result_SUCCESS;

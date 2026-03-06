@@ -35,6 +35,10 @@ typedef enum : Klumzy_UInt32 {
 	Klumzy_Result_FAILURE_UNREGISTER_WNDCLASSEX,
 	Klumzy_Result_FAILURE_CREATE_WINDOW,
 	Klumzy_Result_FAILURE_DESTROY_WINDOW,
+	Klumzy_Result_FAILURE_CHOOSE_PIXEL_FORMAT,
+	Klumzy_Result_FAILURE_SET_PIXEL_FORMAT,
+	Klumzy_Result_FAILURE_CREATE_GL_CONTEXT,
+	Klumzy_Result_FAILURE_SHARE_GL_LISTS,
 #endif /* ifdef KLUMZY_SYSTEM_WINDOWS */
 	/* End Failure */
 
