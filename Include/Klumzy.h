@@ -2,8 +2,10 @@
  * Copyright (c) 2026 Klumzy Duk Gamez
  * See LICENSE.md for license details */
 
-#include <Klumzy.h>
+#if !defined __KLUMZY_H__
+#define __KLUMZY_H__
 
-int main(int argc, char* argv[]) {
-	return 0;
-}
+#include "Klumzy_Common.h"
+#include "Klumzy_Memory.h"
+
+#endif /* ifndef __KLUMZY_H__ */

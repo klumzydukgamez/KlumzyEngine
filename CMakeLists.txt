@@ -42,6 +42,9 @@ add_library(Library SHARED ${Library_SOURCES})
 target_compile_definitions(Library PRIVATE
 	KLUMZY_EXPORT_DLL
 )
+target_compile_options(Library PRIVATE
+	-g -O0
+)
 target_include_directories(Library PRIVATE
 	${INCLUDE_DIR}
 )
@@ -64,6 +67,9 @@ file(GLOB_RECURSE Editor_SOURCES
 )
 
 add_executable(Editor ${Editor_SOURCES})
+target_compile_options(Editor PRIVATE
+	-g -O0
+)
 target_include_directories(Editor PRIVATE
 	${INCLUDE_DIR}
 )
