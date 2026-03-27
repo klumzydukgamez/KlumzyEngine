@@ -6,6 +6,7 @@
 #define __KLUMZY_H__
 
 #include "Klumzy_Common.h"
+#include "Klumzy_Math.h"
 #include "Klumzy_Memory.h"
 
 #endif /* ifndef __KLUMZY_H__ */

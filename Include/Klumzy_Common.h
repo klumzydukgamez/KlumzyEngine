@@ -75,7 +75,6 @@ typedef unsigned long long Klumzy_UInt64;
 
 typedef float Klumzy_Float32;
 typedef double Klumzy_Float64;
-typedef long double Klumzy_Float128;
 
 typedef void Klumzy_Void;
 typedef char Klumzy_Char;
